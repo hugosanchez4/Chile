@@ -1,0 +1,112 @@
+body {
+    color: #e5e9f0;
+    background-color: #2e3440;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Impede o overflow horizontal */
+    display: flex;
+    flex-direction: column; /* Ajuste para colunas no corpo */
+    align-items: center;
+    min-height: 100vh; /* Garante que o body tenha pelo menos a altura da tela */
+    position: relative;
+    box-sizing: border-box;
+}
+
+body::before, body::after {
+    content: '';
+    position: fixed; /* Usa fixed para que eles não afetam o layout do conteúdo */
+    top: 0;
+    bottom: 0;
+    width: 13px; /* Largura das bordas */
+    background-color: white;
+    box-shadow: inset 10px 0 15px -10px rgba(0, 0, 0, 0.5); /* Efeito 3D muito loco*/
+    z-index: 1; /* Para garantir que as bordas fiquem atrás do conteúdo */
+    pointer-events: none; /* Impede que as bordas bloqueiem cliques */
+}
+
+body::before {
+    left: 0;
+    box-shadow: inset -10px 0 15px -10px rgba(0, 0, 0, 0.5); /* Efeito 3D no lado esquerdo */
+}
+
+body::after {
+    right: 0;
+    box-shadow: inset 10px 0 15px -10px rgba(0, 0, 0, 0.5); /* Efeito 3D no lado direito */
+}
+
+hr {
+    width: 100%;
+    border: 1px solid #81a1c1;
+    margin: 16px 0;
+}
+
+.logo {
+    width: 100%;
+    max-width: 470px; /* Largura máxima para a imagem */
+    margin: 16px 0;
+    text-align: center;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+    padding: 0;
+    margin: 16px 0;
+    width: 100%;
+}
+
+.navbar li {
+    margin: 9px 0;
+}
+
+.navbar a {
+    color: #81a1c1;
+    transition: color 0.5s;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    color: #b48ead;
+}
+
+main {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+main h1, main h2, main p {
+    max-width: 800px;
+    margin: 10px 0;
+}
+
+@media (min-width: 600px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .navbar li {
+        margin: 0 16px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+}
